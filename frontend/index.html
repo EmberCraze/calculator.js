@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    html, body {
+        height: 100%;
+    }
+    html {
+        display: table;
+        margin: auto;
+    }
+
+    body {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .button {
+      width: 80px;
+      height: 58px;
+      margin: 5px;
+      backface-visibility: hidden;
+      border: 0;
+      border-radius: 10%;
+      color: #fff;
+      cursor: pointer;
+      font-family: Circular,Helvetica,sans-serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      transform: translateZ(0) scale(1);
+      transition: transform .2s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    .button:disabled {
+      color: #787878;
+      cursor: auto;
+    }
+
+    .button:not(:disabled):hover {
+      transform: scale(1.05);
+    }
+
+    .button:not(:disabled):hover:active {
+      transform: scale(1.05) translateY(.125rem);
+    }
+
+    .button:focus {
+      outline: 0 solid transparent;
+    }
+
+    .button:focus:before {
+      border-width: .125rem;
+      content: "";
+      left: calc(-1*.375rem);
+      pointer-events: none;
+      position: absolute;
+      top: calc(-1*.375rem);
+      transition: border-radius;
+      user-select: none;
+    }
+
+    .button:focus:not(:focus-visible) {
+      outline: 0 solid transparent;
+    }
+
+    .button:not(:disabled):active {
+      transform: translateY(.125rem);
+    }
+    .reset{
+      background: #FEB92D;
+    }
+    .symbol{
+      background: #808d7c;
+    }
+    .operation {
+      background: #0C7C59;
+    }
+    .number {
+      background: #58A4B0;
+    }
+    .result {
+      background: #2B303A;
+      height: 126px
+    }
+    .delete {
+      background: #DA4167;
+    }
+    .input {
+      height: 50px;
+      line-height: 50px;
+      padding: 25px 36px 0;
+      font-size: 83%;
+      text-align: right;
+    }
+    .output {
+      line-height: 100px;
+      padding: 0 36px;
+      text-align: right;
+      font-size: 175%;
+    }
+    .frame {
+      background-color: aliceblue;
+      border-radius: 13px;
+      box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+    }
+    .inner-screen {
+      box-shadow: rgb(223, 222, 222) 0px 0px 6px 1px inset;
+      background-color: rgba(233, 233, 233, 0.25);
+      border-radius: 13px;
+    }
+    .outer-screen {
+      padding-top: 10px;
+      padding-left: 7px;
+      padding-right: 7px;
+      padding-bottom: 5px;
+    }
+
+  </style>
+</head>
+  <body>
+<div class="frame">
+  <div class="outer-screen">
+    <div class="inner-screen">
+      <div class="input">Banana</div>
+      <div class="output">Current banana</div>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <div style="display: flex;flex-direction: column;">
+      <button class="button reset">C</button>
+      <button class="button symbol">SQRT</button>
+      <button class="button number">7</button>
+      <button class="button number">4</button>
+      <button class="button number">1</button>
+      <button class="button number">.</button>
+    </div>
+    <div style="display: flex;flex-direction: column;">
+      <button class="button symbol">(</button>
+      <button class="button symbol">%</button>
+      <button class="button number">8</button>
+      <button class="button number">5</button>
+      <button class="button number">2</button>
+      <button class="button number">0</button>
+    </div>
+    <div style="display: flex;flex-direction: column;">
+      <button class="button symbol">)</button>
+      <button class="button symbol">+/-</button>
+      <button class="button number">9</button>
+      <button class="button number">6</button>
+      <button class="button number">3</button>
+      <button class="button delete">⌫</button>
+    </div>
+    <div style="display: flex;flex-direction: column;">
+      <button class="button operation">X</button>
+      <button class="button operation">/</button>
+      <button class="button operation">-</button>
+      <button class="button operation">+</button>
+      <button class="button result">=</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
