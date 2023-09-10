@@ -1,47 +1,18 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const Pool = require('pg').Pool
-
-const pool = new Pool({
-  user: process.env.POSTGRES_USER,
-  host: process.env.POSTGRES_HOST,
-  database: process.env.POSTGRES_DB,
-  password: process.env.POSTGRES_PASSWORD,
-  port: process.env.POSTGRES_PORT,
-
-});
   
 const app = express();
 const PORT = 3001;
 
-app.use(bodyParser.json()); // To parse JSON data
-  
-app.get('/', (req, res)=>{
-    res.status(200);
-    console.log(process.env)
-    pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
-        if (error) {
-          throw error
-        }
-    });
-    res.send("Welcome to root URL of Server");
-});
+app.use(express.json());
 
-app.get('/hello', (req, res)=>{
-    res.set('Content-Type', 'text/html');
-    res.status(200).send("<h1>Hello!</h1>");
-});
 
-// User should be able to post the content of the current screen
-app.post('/screen', (req, res)=>{
+// Import the routes
+const screensRoutes = require('./src/routes/screenRoutes.js');
 
-    res.set('Content-Type', 'application/json');
-    const inputData = req.body;
-    res.body = inputData;
-    res.status(200);
-    res.send();
-})
- console.log(pool); 
+
+ // Use the routes
+app.use('/screen', screensRoutes); 
+
 
 app.listen(PORT, (error) =>{
     if(!error)
