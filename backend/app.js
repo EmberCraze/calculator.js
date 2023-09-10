@@ -7,7 +7,7 @@ app.use(express.json());
 
 
 // Import the routes
-const screensRoutes = require('./src/routes/screenRoutes.js');
+const screensRoutes = require('./src/routes/screen.js');
 
 
  // Use the routes
