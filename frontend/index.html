@@ -126,18 +126,18 @@
 <div class="frame">
   <div class="outer-screen">
     <div class="inner-screen">
-      <div class="input">Banana</div>
-      <div class="output">Current banana</div>
+      <div id="screenInput" class="input">Banana</div>
+      <div id="screenOutput" class="output">Current banana</div>
     </div>
   </div>
   <div style="display: flex; justify-content: center;">
     <div style="display: flex;flex-direction: column;">
-      <button class="button reset">C</button>
-      <button class="button symbol">SQRT</button>
-      <button class="button number">7</button>
-      <button class="button number">4</button>
-      <button class="button number">1</button>
-      <button class="button number">.</button>
+      <button id="resetButton" class="button reset">C</button>
+      <button id="sqrtButton" class="button symbol">SQRT</button>
+      <button id="nr7Button" class="button number">7</button>
+      <button id="nr4Button" class="button number">4</button>
+      <button id="nr1Button" class="button number">1</button>
+      <button id="dotButton" class="button number">.</button>
     </div>
     <div style="display: flex;flex-direction: column;">
       <button class="button symbol">(</button>
@@ -160,7 +160,7 @@
       <button class="button operation">/</button>
       <button class="button operation">-</button>
       <button class="button operation">+</button>
-      <button class="button result">=</button>
+      <button id="equalsButton" class="button result">=</button>
     </div>
   </div>
 </div>
